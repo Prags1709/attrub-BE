@@ -5,6 +5,11 @@ const userSchema = mongoose.Schema({
     email: {type:String, required:true},
     password: {type:String, required:true},
     phoneNo: {type:Number, required:true},
+    role: {
+        type: String,
+        enum: ['dealer', 'buyer'],
+        required: true
+      }
 })
 
 const UserModel = mongoose.model("user", userSchema)
