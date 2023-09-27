@@ -13,7 +13,7 @@ userRoute.post("/signup", async (req, res) => {
         bcrypt.hash(password, 5, async (err, securePassword) => {
             if (err) {
                 console.log(err);
-                res.send({ message: "Something went wrong" })
+                res.status(404).send({ message: "Something went wrong" })
             } else {
                 let user = new UserModel({ name, email, password: securePassword, phoneNo, role })
                 await user.save()
